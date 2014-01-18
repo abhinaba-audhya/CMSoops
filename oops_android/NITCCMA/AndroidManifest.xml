@@ -26,6 +26,10 @@
             android:name="com.example.nitccma.WelcomeActivity"
             android:label="@string/title_activity_welcome" >
         </activity>
+        <activity
+            android:name="com.example.nitccma.Details"
+            android:label="@string/title_activity_details" >
+        </activity>
     </application>
 
 </manifest>
