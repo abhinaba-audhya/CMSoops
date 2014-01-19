@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello" color="@color/x">Hello World, AndroidJSONParsingActivity! </string>
+    <string name="app_name">&quot;             NITC CMS&quot;</string>
+
+</resources>

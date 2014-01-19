@@ -6,5 +6,6 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_welcome">&quot;             NITC CMS&quot;</string>
     <string name="title_activity_details">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_subjects">Subjects</string>
 
 </resources>

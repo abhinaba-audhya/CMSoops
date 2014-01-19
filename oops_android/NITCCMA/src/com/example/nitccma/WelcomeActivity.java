@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -30,6 +31,34 @@ public class WelcomeActivity extends Activity {
 		 customText3.setTypeface(font1);
 		 b1.setTypeface(font2);
 		 b2.setTypeface(font2);
+		 b1.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					//Context context=this;
+					//EditText edit1=(EditText)findViewById(R.id.editText1);
+					//String s=edit1.getText().toString();
+					Intent intent=new Intent(getApplicationContext(),Subjects.class);
+					intent.putExtra("next","details");
+					startActivity(intent);
+					
+				}
+			});
+		/* b2.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					//Context context=this;
+					//EditText edit1=(EditText)findViewById(R.id.editText1);
+					//String s=edit1.getText().toString();
+					Intent intent=new Intent(getApplicationContext(),Subjects.class);
+					intent.putExtra("next","attendence");
+					startActivity(intent);
+					
+				}
+			});*/
 	}
 
 	@Override
