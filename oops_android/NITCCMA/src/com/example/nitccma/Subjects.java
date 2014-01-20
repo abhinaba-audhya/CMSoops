@@ -59,7 +59,7 @@ public class Subjects extends Activity {
 	              //}
 	            //}
 	        //);
-	        Intent intent = new Intent(Subjects.this, Details.class);
+	        Intent intent = new Intent(Subjects.this, MainQueryDetailsList.class);
 
             startActivity(intent);
 	      }
