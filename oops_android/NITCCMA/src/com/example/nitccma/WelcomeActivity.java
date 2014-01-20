@@ -24,7 +24,7 @@ public class WelcomeActivity extends Activity {
 		 Button b1=(Button)findViewById(R.id.button1);
 		 Button b2=(Button)findViewById(R.id.button2);
 		 Intent intent=getIntent();
-		 String name1=intent.getStringExtra("name");
+		 final String name1=intent.getStringExtra("name");
 		 customText1.setTypeface(font1);
 		 customText2.setTypeface(font2);
 		 customText2.setText(name1);
@@ -40,12 +40,13 @@ public class WelcomeActivity extends Activity {
 					//EditText edit1=(EditText)findViewById(R.id.editText1);
 					//String s=edit1.getText().toString();
 					Intent intent=new Intent(getApplicationContext(),Subjects.class);
-					intent.putExtra("next","details");
+					intent.putExtra("next","details");//passing option for details
+					intent.putExtra("name",name1);//passing name of teacher
 					startActivity(intent);
 					
 				}
 			});
-		/* b2.setOnClickListener(new View.OnClickListener() {
+		 b2.setOnClickListener(new View.OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
@@ -54,11 +55,12 @@ public class WelcomeActivity extends Activity {
 					//EditText edit1=(EditText)findViewById(R.id.editText1);
 					//String s=edit1.getText().toString();
 					Intent intent=new Intent(getApplicationContext(),Subjects.class);
-					intent.putExtra("next","attendence");
+					intent.putExtra("next","attendence");//passing option for attendence
+					intent.putExtra("name",name1);//passing name of teacher
 					startActivity(intent);
 					
 				}
-			});*/
+			});
 	}
 
 	@Override

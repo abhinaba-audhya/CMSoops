@@ -7,5 +7,6 @@
     <string name="title_activity_welcome">&quot;             NITC CMS&quot;</string>
     <string name="title_activity_details">&quot;             NITC CMS&quot;</string>
     <string name="title_activity_subjects">Subjects</string>
+    <string name="title_activity_attendence">Attendence</string>
 
 </resources>

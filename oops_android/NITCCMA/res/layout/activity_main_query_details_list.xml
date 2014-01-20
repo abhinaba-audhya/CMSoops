@@ -13,6 +13,6 @@
         android:layout_height="wrap_content"
         android:background="@drawable/images" 
         android:divider="#3BB9FF"
-        android:dividerHeight="3px"/>
+        android:dividerHeight="2px"/>
 
 </LinearLayout>

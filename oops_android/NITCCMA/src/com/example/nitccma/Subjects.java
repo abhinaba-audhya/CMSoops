@@ -31,7 +31,8 @@ public class Subjects extends Activity {
 	        "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
 	        "Android", "iPhone", "WindowsMobile" };
 	    Intent intent=getIntent();
-		 String choice=intent.getStringExtra("next");
+		 final String choice=intent.getStringExtra("next");//getting the choice
+		 final String name=intent.getStringExtra("name");//getting the prof name
 	    final ArrayList<String> list = new ArrayList<String>();
 	    for (int i = 0; i < values.length; ++i) 
 	    {
@@ -59,9 +60,20 @@ public class Subjects extends Activity {
 	              //}
 	            //}
 	        //);
-	        Intent intent = new Intent(Subjects.this, MainQueryDetailsList.class);
-
-            startActivity(intent);
+	        if(choice.equals("details")==true)
+	        {
+	        Intent intent1 = new Intent(Subjects.this, MainQueryDetailsList.class);
+	       // intent.putExtra("name", name);//forwarding name
+	        //intent.putExtra("choice", choice);//forwarding choice
+            startActivity(intent1);
+	        }
+	        else if(choice.equals("attendence")==true)
+	        {
+	        Intent intent1 = new Intent(Subjects.this, Attendence.class);
+	       // intent.putExtra("name", name);//forwarding name
+	        //intent.putExtra("choice", choice);//forwarding choice
+            startActivity(intent1);
+	        }
 	      }
 
 	    });
