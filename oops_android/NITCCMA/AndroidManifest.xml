@@ -19,11 +19,6 @@
         <activity
             android:name="com.example.nitccma.MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.example.nitccma.WelcomeActivity"
@@ -35,15 +30,52 @@
         </activity>
         <activity
             android:name="com.example.nitccma.SingleContactActivity"
-            android:label="Single_Contact_View" >
+            android:label="@string/title_activity_single_contact" >
         </activity>
         <activity
             android:name="com.example.nitccma.MainQueryDetailsList"
-            android:label="Main_query_details" >
+            android:label="@string/title_activity_main_query_details_list" >
         </activity>
         <activity
-            android:name="com.example.nitccma.Attendence"
+            android:name="com.example.nitccma.Attendance"
             android:label="@string/title_activity_attendence" >
+        </activity>
+        <activity
+            android:name="com.example.nitccma.Confirm_Attend"
+            android:label="@string/title_activity_confirm__attend" >
+        </activity>
+        <activity
+            android:name="com.example.nitccma.Show_Attendance"
+            android:label="@string/title_activity_show__attendance" >
+        </activity>
+        <activity
+            android:name="com.example.nitccma.Main"
+            android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.nitccma.Student_Login"
+            android:label="@string/title_activity_student__login" >
+        </activity>
+        <activity
+            android:name="com.example.nitccma.StudentWelcomeActivity"
+            android:label="@string/title_activity_student_welcome" >
+        </activity>
+        <activity
+            android:name="com.example.nitccma.Faculty_details"
+            android:label="@string/title_activity_faculty_details" >
+        </activity>
+        <activity
+            android:name="com.example.nitccma.Show_Sub_Attendance"
+            android:label="@string/title_activity_show__sub__attendance" >
+        </activity>
+        <activity
+            android:name="com.example.nitccma.ChangePassword"
+            android:label="@string/title_activity_change_password" >
         </activity>
     </application>
 

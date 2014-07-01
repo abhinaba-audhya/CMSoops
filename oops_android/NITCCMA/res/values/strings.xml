@@ -5,8 +5,18 @@
     <string name="hello_world" color="@color/x">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_welcome">&quot;             NITC CMS&quot;</string>
-    <string name="title_activity_details">&quot;             NITC CMS&quot;</string>
-    <string name="title_activity_subjects">Subjects</string>
-    <string name="title_activity_attendence">Attendence</string>
+    <string name="title_activity_attendance">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_subjects">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_attendence">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_main_query_details_list">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_single_contact">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_confirm__attend">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_show__attendance">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_main">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_student__login">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_student_welcome">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_faculty_details">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_show__sub__attendance">&quot;             NITC CMS&quot;</string>
+    <string name="title_activity_change_password">&quot;             NITC CMS&quot;</string>
 
 </resources>

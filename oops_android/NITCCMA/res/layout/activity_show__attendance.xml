@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/images"
+    android:gravity="center"
     android:orientation="vertical"
-    android:background="@drawable/images">
-	<!-- Main ListView 
-		 Always give id value as list(@android:id/list)
-	-->
-
+    tools:context=".Show_Attendance" >
     <ListView
         android:id="@android:id/list"
          android:layout_width="fill_parent"
@@ -15,9 +13,7 @@
         android:layout_weight="0.32"
         android:background="@drawable/images" 
         android:divider="#E1FCD9"
-        android:dividerHeight="2px"/>
+        android:dividerHeight="2px"/> 
     
 
 </LinearLayout>
-
- 

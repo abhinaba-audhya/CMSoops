@@ -1,56 +1,47 @@
 package com.example.nitccma;
 
-import android.os.Bundle;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.app.Activity;
-import android.content.Context;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.view.GestureDetector.OnGestureListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
-
-public class MainActivity extends Activity implements OnGestureListener {
+public class Student_Login extends Activity implements OnGestureListener {
 	private GestureDetector gDetector;
 	EditText edit1,edit2;
 	private ProgressDialog pDialog;
 	 
     JSONParser jsonParser = new JSONParser();
     // url to create new product
-    private static String url_create_product = "http://allstuffcodes.info/classmanagement/authenticate.php";
+    private static String url_create_product = "http://allstuffcodes.info/classmanagement/student_login.php";
  
     // JSON Node names
+    private static final String TAG_RESULT = "result";
     private static final String TAG_SUCCESS = "success";
-	
-	
+	private static final String TAG_NAME = "Name";
+	JSONArray success = null;
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_student__login);
 		Typeface font1 = Typeface.createFromAsset(getAssets(), "fonts/Yellow_Dog.ttf");
 		Typeface font2 = Typeface.createFromAsset(getAssets(), "fonts/f2.ttf");
         //Typeface font2 = Typeface.createFromAsset(getAssets(), "fonts/FEASFBRG.TTF");
@@ -58,22 +49,20 @@ public class MainActivity extends Activity implements OnGestureListener {
         TextView customText2 = (TextView)findViewById(R.id.textView2);
         TextView customText3 = (TextView)findViewById(R.id.textView3);
         TextView customText4 = (TextView)findViewById(R.id.textView4);
-        TextView customText5 = (TextView)findViewById(R.id.textView5);
+        //TextView customText5 = (TextView)findViewById(R.id.textView5);
         TextView customText6 = (TextView)findViewById(R.id.textView6);
         TextView customText7 = (TextView)findViewById(R.id.textView7);
-        edit1=(EditText)findViewById(R.id.editText1);
-        edit2=(EditText)findViewById(R.id.editText2);
         Button b1=(Button)findViewById(R.id.button1);
+        edit2=(EditText)findViewById(R.id.editText2);
         customText1.setTypeface(font1);
         customText2.setTypeface(font1);
         customText3.setTypeface(font1);
         customText4.setTypeface(font1);
-        customText5.setTypeface(font2);
+        //customText5.setTypeface(font2);
         customText6.setTypeface(font2);
         customText7.setTypeface(font2);
-        edit1.setTypeface(font2);
-        edit2.setTypeface(font2);
         b1.setTypeface(font2);
+        edit2.setTypeface(font2);
         b1.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -85,8 +74,8 @@ public class MainActivity extends Activity implements OnGestureListener {
 				Intent intent=new Intent(getApplicationContext(),WelcomeActivity.class);
 				intent.putExtra("name",s);
 				startActivity(intent);*/
-				/*edit1=(EditText)findViewById(R.id.editText1);
-		        edit2=(EditText)findViewById(R.id.editText2);*/
+				//edit1=(EditText)findViewById(R.id.editText1);
+		        
 				new authenticate().execute();
 			}
 		});
@@ -103,7 +92,7 @@ public class MainActivity extends Activity implements OnGestureListener {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(MainActivity.this);
+            pDialog = new ProgressDialog(Student_Login.this);
             pDialog.setMessage("Authenticating..");
             //pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
@@ -114,15 +103,13 @@ public class MainActivity extends Activity implements OnGestureListener {
          * Creating product
          * */
         protected String doInBackground(String... args) {
-            String Teacher_Id = edit1.getText().toString();
-            String Password = edit2.getText().toString();
- 
+            //String Teacher_Id = edit1.getText().toString();
+            String Roll = edit2.getText().toString();
+            String Name="";
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            if(Teacher_Id!="")
-            params.add(new BasicNameValuePair("Teacher_Id", Teacher_Id));
-            if(Password!="")
-            params.add(new BasicNameValuePair("Password", Password));
+            if(Roll!="")
+            params.add(new BasicNameValuePair("Roll", Roll));
             //params.add(new BasicNameValuePair("description", description));
  
             // getting JSON Object
@@ -134,25 +121,29 @@ public class MainActivity extends Activity implements OnGestureListener {
  
             // check for success tag
             try {
-                int success = json.getInt(TAG_SUCCESS);
- 
-                if (success == 1) {
+                success = json.getJSONArray(TAG_SUCCESS);
+                JSONObject c = success.getJSONObject(0);
+				
+				int rslt = c.getInt(TAG_RESULT);
+				Name=c.getString(TAG_NAME);
+                if (rslt == 1) {
                     // successfully created product
                     //Intent i = new Intent(getApplicationContext(), AllProductsActivity.class);
                     //startActivity(i);
-                    Intent intent=new Intent(getApplicationContext(),WelcomeActivity.class);
-    				intent.putExtra("Teacher_Id",Teacher_Id);
+                    Intent intent=new Intent(getApplicationContext(),StudentWelcomeActivity.class);
+    				intent.putExtra("Roll",Roll);
+    				intent.putExtra("Name",Name);
     				startActivity(intent);
  
                     // closing this screen
                     finish();
                 } else {
                 	//Toast.makeText(MainActivity.this, "error",5000).show();
-                	Intent intent1=new Intent(getApplicationContext(),MainActivity.class);
+                	Intent intent1=new Intent(getApplicationContext(),Student_Login.class);
                 	startActivity(intent1);
                 	finish();
                 	//edit1.setText("Invalid name or ");
-                	//edit2.setText("Invalid password");
+                	//edit2.setText("Invalid Roll");
                     // failed to create product
                 	
                 }
@@ -207,7 +198,7 @@ public class MainActivity extends Activity implements OnGestureListener {
 
 		}*/
 		
-		Intent intent = new Intent(MainActivity.this, Main.class);
+		Intent intent = new Intent(Student_Login.this, Main.class);
         startActivity(intent);
 
 		
@@ -238,13 +229,6 @@ public class MainActivity extends Activity implements OnGestureListener {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 	
-	/*@Override
-		public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
-	}*/
 
 }

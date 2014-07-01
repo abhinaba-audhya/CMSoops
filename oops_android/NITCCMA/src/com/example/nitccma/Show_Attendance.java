@@ -1,39 +1,29 @@
 package com.example.nitccma;
 
-import com.example.nitccma.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.view.Menu;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
-public class MainQueryDetailsList extends ListActivity {
+public class Show_Attendance extends ListActivity {
 
 	private ProgressDialog pDialog;
-
-	// URL to get contacts JSON
-	private static String url = "http://allstuffcodes.info/classmanagement/all_student.php";
-
-	// JSON Node names
-	//private static final String TAG_CONTACTS = "contacts";
+	private static String url = "http://allstuffcodes.info/classmanagement/all_student_attend.php";
 	private static final String TAG_STUDENTS = "students";
 	private static final String TAG_ROLL = "Roll";
 	private static final String TAG_FNAME = "Firstname";
@@ -43,72 +33,28 @@ public class MainQueryDetailsList extends ListActivity {
 	private static final String TAG_BRANCH = "Branch";
 	private static final String TAG_YEAR = "Year";	
 	private static final String TAG_MOBILE = "Mobile";
-	//private static final String TAG_INDEX = "1";
-	//private static final String TAG_PHONE_OFFICE = "office";
-	
+	private static final String TAG_ABSENT = "Absent_Days";
+	private static final String TAG_PRESENT = "Present_Days";
+	private static final String TAG_TOTAL = "Total_Days";
 	// contacts JSONArray
-	JSONArray students = null;
+		JSONArray students = null;
 
-	// Hashmap for ListView
-	JSONParser jsonParser = new JSONParser();
-	ArrayList<HashMap<String, String>> studentList;
+		// Hashmap for ListView
+		JSONParser jsonParser = new JSONParser();
+		ArrayList<HashMap<String, String>> studentList;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main_query_details_list);
-		 Intent intent=getIntent();
+		setContentView(R.layout.activity_show__attendance);
+		Intent intent=getIntent();
 		 //String choice=intent.getStringExtra("next");
 		studentList = new ArrayList<HashMap<String, String>>();
 
 		ListView lv = getListView();
-
-		// Listview on item click listener
-		lv.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// getting values from selected ListItem
-				String Name = ((TextView) view.findViewById(R.id.name)).getText().toString();
-				String Roll = ((TextView) view.findViewById(R.id.roll)).getText().toString();
-				for(int i=0;i<studentList.size();i++)
-				{
-					HashMap<String, String> student1 = new HashMap<String, String>();
-					student1=studentList.get(i);
-					String Index=student1.get(TAG_ROLL);
-					if(Roll.compareTo(Index)==0)
-					{
-						Intent in = new Intent(getApplicationContext(),
-								SingleContactActivity.class);
-						in.putExtra(TAG_NAME, student1.get(TAG_NAME));
-						in.putExtra(TAG_ROLL, student1.get(TAG_ROLL));
-						in.putExtra(TAG_EMAIL, student1.get(TAG_EMAIL));
-						in.putExtra(TAG_BRANCH, student1.get(TAG_BRANCH));
-						in.putExtra(TAG_YEAR, student1.get(TAG_YEAR));
-						in.putExtra(TAG_MOBILE, student1.get(TAG_MOBILE));
-						startActivity(in);
-						break;
-					}
-					
-					
-				}
-				//String description = ((TextView) view.findViewById(R.id.mobile)).getText().toString();
-				// Starting single contact activity
-				/*Intent in = new Intent(getApplicationContext(),
-						SingleContactActivity.class);
-				in.putExtra(TAG_NAME, Name);
-				in.putExtra(TAG_ROLL, Roll);
-				//in.putExtra(TAG_PHONE_MOBILE, description);
-				startActivity(in);*/
-
-			}
-		});
-
-		// Calling async task to get json
 		new GetStudents().execute();
-	}
 
+	}
 	/**
 	 * Async task class to get json by making HTTP call
 	 * */
@@ -118,7 +64,7 @@ public class MainQueryDetailsList extends ListActivity {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			// Showing progress dialog
-			pDialog = new ProgressDialog(MainQueryDetailsList.this);
+			pDialog = new ProgressDialog(Show_Attendance.this);
 			pDialog.setMessage("Please wait...");
 			pDialog.setCancelable(false);
 			pDialog.show();
@@ -158,17 +104,10 @@ public class MainQueryDetailsList extends ListActivity {
 						String Mobile = c.getString(TAG_MOBILE);
 						String Branch = c.getString(TAG_BRANCH);
 						String Year = c.getString(TAG_YEAR);
-						//String Index ="";
-						//Index+=i;
-						//String address = c.getString(TAG_ADDRESS);
-						//String gender = c.getString(TAG_GENDER);
-
-						// Phone node is JSON Object
-						/*JSONObject phone = c.getJSONObject(TAG_PHONE);
-						String mobile = phone.getString(TAG_PHONE_MOBILE);
-						String home = phone.getString(TAG_PHONE_HOME);
-						String office = phone.getString(TAG_PHONE_OFFICE);
-						*/
+						String Absent_Days = c.getString(TAG_ABSENT);
+						String Present_Days = c.getString(TAG_PRESENT);
+						String Total_Days = c.getString(TAG_TOTAL);
+						
 						// tmp hashmap for single contact
 						HashMap<String, String> students = new HashMap<String, String>();
 
@@ -181,6 +120,9 @@ public class MainQueryDetailsList extends ListActivity {
 						students.put(TAG_MOBILE, Mobile);
 						students.put(TAG_BRANCH, Branch);
 						students.put(TAG_YEAR, Year);
+						students.put(TAG_ABSENT, Absent_Days);
+						students.put(TAG_PRESENT, Present_Days);
+						students.put(TAG_TOTAL, Total_Days);
 						//students.put(TAG_INDEX,Index);
 						// adding contact to contact list
 						studentList.add(students);
@@ -205,12 +147,13 @@ public class MainQueryDetailsList extends ListActivity {
 			 * Updating parsed JSON data into ListView
 			 * */
 			ListAdapter adapter = new SimpleAdapter(
-					MainQueryDetailsList.this, studentList,
-					R.layout.list_item, new String[] { TAG_NAME,TAG_ROLL }, new int[] { R.id.name,R.id.roll });
+					Show_Attendance.this, studentList,
+					R.layout.list_item_show_attendance, new String[] { TAG_NAME,TAG_ROLL,TAG_ABSENT,TAG_PRESENT,TAG_TOTAL }, new int[] { R.id.name,R.id.roll,R.id.attend,R.id.present,R.id.total });
 
 			setListAdapter(adapter);
 		}
 
-	}
 
+	
+	}
 }

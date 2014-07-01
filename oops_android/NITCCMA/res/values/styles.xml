@@ -10,11 +10,17 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+         <item name="android:editTextColor">#FFFFFF</item> 
     </style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+         <item name="android:editTextColor">#FFFFFF</item> 
     </style>
 
+    <style name="styleName">
+        <item name="android:button">@drawable/checkbox_selector</item>
+        <item name="android:checked">false</item>
+    </style>
 </resources>

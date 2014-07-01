@@ -14,15 +14,35 @@
             android:textStyle="bold"
             android:paddingTop="10dip"
             android:paddingBottom="10dip"
-            android:textColor="#43bd00"/>
+             android:textColor="#F4FFDD"/>
+  <!-- Roll Label -->
+  <TextView android:id="@+id/roll_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#EEDDFF"/>
   <!-- Email Label -->
   <TextView android:id="@+id/email_label"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="#acacac"/>
+            android:textStyle="bold"
+            android:textColor="#EEDDFF"/>
+  <!-- Branch Label -->
+  <TextView android:id="@+id/branch_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#EEDDFF"/>
+  <!-- Year Label -->
+  <TextView android:id="@+id/year_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#EEDDFF"/>
   <!-- Mobile Label -->
   <TextView android:id="@+id/mobile_label"
       		android:layout_width="fill_parent"
       		android:layout_height="wrap_content"
-      		android:textStyle="bold"/>
+      		android:textStyle="bold"
+      		android:textColor="#EEDDFF"/>
 </LinearLayout>

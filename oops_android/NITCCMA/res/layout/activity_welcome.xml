@@ -5,26 +5,61 @@
     android:background="@drawable/images"
     tools:context=".WelcomeActivity" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceMedium" 
-        android:textColor="@color/x"/>
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignRight="@+id/button3"
+        android:layout_below="@+id/button3"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape"
+        android:text="TAKE ATTENDENCE"
+        android:textColor="@color/x" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignRight="@+id/button2"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape"
+        android:text="STUDENT DETAILS"
+        android:textColor="@color/x" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/button4"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="28dp"
+        android:layout_alignRight="@+id/imageButton1"
+        android:layout_marginTop="15dp"
         android:text="WELCOME"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/x" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/button4"
+        android:layout_alignRight="@+id/button4"
+        android:layout_below="@+id/button4"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/shape"
+        android:text="SHOW ATTENDENCE"
+        android:textColor="@color/x" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageButton1"
+        android:layout_centerHorizontal="true"
+        android:text="flkjldfjgld"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/x" />
 
@@ -32,40 +67,33 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_alignBottom="@+id/imageButton1"
+        android:layout_alignRight="@+id/textView2"
         android:text="OPTIONS"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/x" />
 
     <ImageButton
         android:id="@+id/imageButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/logout" 
-        />
+        android:layout_below="@+id/textView1"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape"
+        android:src="@drawable/logout"
+        android:textColor="@color/x" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/button4"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp"
-        android:text="TAKE ATTENDENCE"
-        android:textColor="@color/x"  />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/button2"
-        android:layout_marginBottom="20dp"
-        android:text="STUDENT DETAILS"
-        android:textColor="@color/x"  />
+        android:layout_marginTop="29dp"
+        android:background="@drawable/shape"
+        android:text="CHANGE PASSWORD"
+        android:textColor="@color/x" />
 
 </RelativeLayout>

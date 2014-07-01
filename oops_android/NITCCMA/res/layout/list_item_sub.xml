@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp" >
-
     <!-- Name Label -->
-
     <TextView
         android:id="@+id/name"
         android:layout_width="fill_parent"
@@ -17,17 +15,19 @@
         android:paddingTop="6dip"
         android:textColor="#F4FFDD"
         android:textSize="16sp"
-        android:textStyle="bold" />
-
-    
-    <!-- Roll number label -->
+        android:textStyle="bold" 
+        />
     <TextView
-        android:id="@+id/roll"
-        android:layout_width="wrap_content"
+        android:id="@+id/code"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:text="Roll: "
-        android:textColor="#EEDDFF"
-        android:textStyle="bold" />
+        android:paddingBottom="2dip"
+        android:paddingTop="6dip"
+        android:textColor="#F4FFDD"
+        android:textSize="16sp"
+        android:textStyle="bold" 
+        />
+    
+    
 
 </LinearLayout>

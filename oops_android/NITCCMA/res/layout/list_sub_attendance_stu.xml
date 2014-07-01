@@ -1,0 +1,54 @@
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_height="fill_parent"
+android:layout_width="fill_parent"
+android:paddingTop="10dip"
+android:paddingBottom="10dip"
+android:paddingLeft="15dip">
+
+<TextView
+    android:id="@+id/subname"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:textColor="#EEDDFF"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    />   
+    <TextView
+    android:id="@+id/subcode"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#F4FFDD"
+    android:layout_below="@id/subname"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    />
+<TextView
+    android:id="@+id/attend" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_below="@id/present"
+    android:textColor="#EEDDFF"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    
+    />    
+<TextView
+    android:id="@+id/present"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#F4FFDD"
+    android:layout_below="@id/subcode"
+    android:layout_toLeftOf="@id/attend"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    />
+<TextView
+    android:id="@+id/total"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#F4FFDD"
+    android:layout_below="@id/present"
+    android:layout_toLeftOf="@id/attend"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    />
+
+</RelativeLayout>
